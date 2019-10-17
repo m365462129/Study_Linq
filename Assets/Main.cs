@@ -8,7 +8,8 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        c08Predicate_Find();
+        List_FindIndex();
+        //c08Predicate_Find();
         //c08Predicate();
         //C08Comparison();
         //C08ForEach();
@@ -39,6 +40,21 @@ public class Main : MonoBehaviour
              new PigType(){ TypeID=5, TypeName="变异猪"}
         };
         return plist;
+    }
+
+    void List_FindIndex()
+    {
+        Debug.LogError("11111");
+        List<Pig> list = GetPigList();
+        int index = list.FindIndex(tmpItem => tmpItem.PigID == 4);
+        Debug.LogError("index=" + index);
+        if (index>=0)
+        {
+            list.RemoveAt(index);
+        }
+
+        
+        list.ForEach(tmpItem=> Debug.LogError(tmpItem.ToString()));
     }
 
     void c08Predicate_Find()
